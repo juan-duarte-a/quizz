@@ -26,14 +26,13 @@
 
             <form th:action="@{/check}" method="post">
                 <div th:each="option : ${question.answerOptions}">
-                    <input type="radio" name="option" required
-                        th:attr="id = ${'o' + option.optionNumber}"
+                    <input type="radio" name="option" required th:attr="id = ${'o' + option.optionNumber}"
                         th:value="${option.optionNumber}">
                     <label th:attr="for = ${'o' + option.optionNumber}"
                         th:text="${option.optionNumber + '. ' + option.answer}"></label>
                 </div>
                 <input type="hidden" name="sessionId" th:value="${sessionId}">
-                <input type="submit" value="Comprobar">
+                <input type="submit" value="Responder">
             </form>
         </div>
 

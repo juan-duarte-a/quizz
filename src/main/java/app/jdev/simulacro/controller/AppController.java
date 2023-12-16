@@ -12,7 +12,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
 @Controller
 @RequestMapping("/")
 @RequiredArgsConstructor
@@ -24,7 +23,7 @@ public class AppController {
     public String getHome() {
         return "home";
     }
-    
+
     @GetMapping("quizz")
     public String startQuizz(HttpSession session, Model model) {
         String sessionId = Integer.toHexString(session.hashCode());
@@ -44,9 +43,14 @@ public class AppController {
 
     @PostMapping("quizz")
     public String nextQuestion(@RequestParam String sessionId, Model model) {
-        model.addAttribute("question", quizzService.nextQuestion(sessionId));
-        model.addAttribute("sessionId", sessionId);
-        return "home";
+        if (quizzService.moreQuestions(sessionId)) {
+            model.addAttribute("question", quizzService.nextQuestion(sessionId));
+            model.addAttribute("sessionId", sessionId);
+            return "home";
+        } else {
+            model.addAttribute("result", quizzService.getResult(sessionId));
+            return "result";
+        }
     }
-    
+
 }

@@ -27,9 +27,6 @@ public class Question {
     @Column(nullable = false)
     private String text;
 
-    @Column(nullable = false)
-    private int points;
-
     @OneToMany(mappedBy = "question", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private List<AnswerOption> answerOptions;
 
