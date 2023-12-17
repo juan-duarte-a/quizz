@@ -1,4 +1,4 @@
-package app.jdev.simulacro.service;
+package app.jdev.quizz.service;
 
 import java.time.LocalDateTime;
 

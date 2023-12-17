@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>app.jdev</groupId>
-	<artifactId>simulacro</artifactId>
+	<artifactId>quizz</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>simulacro</name>
-	<description>Simulacro Integrador Final Curso Backend con Java Globant</description>
+	<name>quizz</name>
+	<description>Examen Preparatorio para Integrador Final Curso Backend con Java - Egg / Globant</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

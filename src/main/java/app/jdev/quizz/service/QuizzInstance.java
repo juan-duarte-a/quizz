@@ -1,8 +1,8 @@
-package app.jdev.simulacro.service;
+package app.jdev.quizz.service;
 
 import java.time.LocalDateTime;
 
-import app.jdev.simulacro.entity.Question;
+import app.jdev.quizz.entity.Question;
 import jakarta.annotation.PostConstruct;
 import lombok.AccessLevel;
 import lombok.Getter;

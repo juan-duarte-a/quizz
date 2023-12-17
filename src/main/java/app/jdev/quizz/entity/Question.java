@@ -1,4 +1,4 @@
-package app.jdev.simulacro.entity;
+package app.jdev.quizz.entity;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package app.jdev.simulacro.entity;
+package app.jdev.quizz.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -1,11 +1,11 @@
-package app.jdev.simulacro.controller;
+package app.jdev.quizz.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import app.jdev.simulacro.service.QuizzService;
+import app.jdev.quizz.service.QuizzService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 

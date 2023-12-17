@@ -1,13 +1,13 @@
-package app.jdev.simulacro;
+package app.jdev.quizz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SimulacroApplication {
+public class QuizzApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SimulacroApplication.class, args);
+		SpringApplication.run(QuizzApplication.class, args);
 	}
 
 }

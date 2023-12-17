@@ -1,4 +1,4 @@
-package app.jdev.simulacro.service;
+package app.jdev.quizz.service;
 
 import java.time.LocalDateTime;
 import java.util.concurrent.ConcurrentHashMap;
@@ -8,8 +8,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.springframework.stereotype.Service;
 
-import app.jdev.simulacro.entity.Question;
-import app.jdev.simulacro.repository.QuestionRepository;
+import app.jdev.quizz.entity.Question;
+import app.jdev.quizz.repository.QuestionRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 
