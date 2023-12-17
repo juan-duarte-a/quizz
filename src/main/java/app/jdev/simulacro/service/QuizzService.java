@@ -24,11 +24,13 @@ public class QuizzService {
     private QuizzInstanceControl quizzInstanceControl;
     private ScheduledExecutorService executor;
     private int maxConcurrentQuizzes;
+    private int numberOfQuestions;
 
     @PostConstruct
     public void postConstruct() {
         maxConcurrentQuizzes = 0;
         quizzes = new ConcurrentHashMap<>();
+        numberOfQuestions = (int) questionRepository.count();
         quizzInstanceControl = new QuizzInstanceControl(this);
         executor = Executors.newSingleThreadScheduledExecutor();
         executor.scheduleWithFixedDelay(quizzInstanceControl,
@@ -76,14 +78,22 @@ public class QuizzService {
     }
 
     public boolean moreQuestions(String sessionId) {
+        if (!quizzes.containsKey(sessionId)) { return false; }
         return getQuestion(quizzes.get(sessionId).getCurrentQuestion())
-                .getNumber() < questionRepository.count();
+                .getNumber() < numberOfQuestions;
     }
 
     public String getResult(String sessionId) {
-        String result = quizzes.get(sessionId).getPoints() + "/" + questionRepository.count();
+        if (!quizzes.containsKey(sessionId)) { return "No disponible"; }
+        String result = quizzes.get(sessionId).getPoints() + "/" + numberOfQuestions;
         quizzes.remove(sessionId);
+
+        LogService.log("Quizz finished --- Result: " + result);
         return result;
+    }
+
+    public int getNumberOfQuestions() {
+        return numberOfQuestions;
     }
 
 }

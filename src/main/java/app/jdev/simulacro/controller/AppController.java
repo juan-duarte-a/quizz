@@ -28,6 +28,7 @@ public class AppController {
     public String startQuizz(HttpSession session, Model model) {
         String sessionId = Integer.toHexString(session.hashCode());
         model.addAttribute("question", quizzService.startQuizz(sessionId));
+        model.addAttribute("numberOfQuestions", quizzService.getNumberOfQuestions());
         model.addAttribute("sessionId", sessionId);
         return "home";
     }
@@ -35,6 +36,7 @@ public class AppController {
     @PostMapping("check")
     public String checkQuestion(@RequestParam int option, @RequestParam String sessionId, Model model) {
         model.addAttribute("question", quizzService.answerQuestion(option, sessionId));
+        model.addAttribute("numberOfQuestions", quizzService.getNumberOfQuestions());
         model.addAttribute("sessionId", sessionId);
         model.addAttribute("check", true);
         model.addAttribute("selected", option);
@@ -45,6 +47,7 @@ public class AppController {
     public String nextQuestion(@RequestParam String sessionId, Model model) {
         if (quizzService.moreQuestions(sessionId)) {
             model.addAttribute("question", quizzService.nextQuestion(sessionId));
+            model.addAttribute("numberOfQuestions", quizzService.getNumberOfQuestions());
             model.addAttribute("sessionId", sessionId);
             return "home";
         } else {
