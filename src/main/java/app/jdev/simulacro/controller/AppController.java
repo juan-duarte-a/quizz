@@ -34,8 +34,15 @@ public class AppController {
     }
 
     @PostMapping("check")
-    public String checkQuestion(@RequestParam int option, @RequestParam String sessionId, Model model) {
-        model.addAttribute("question", quizzService.answerQuestion(option, sessionId));
+    public String checkQuestion(@RequestParam int option, @RequestParam String sessionId,
+            @RequestParam int questionNumber, Model model) {
+        if (quizzService.isCurrentQuestionAnswered(sessionId)
+                || quizzService.isQuestionAnswered(questionNumber, sessionId)) {
+            model.addAttribute("question", quizzService.getQuestion(questionNumber));
+        } else {
+            model.addAttribute("question", quizzService.answerQuestion(option, sessionId));
+        }
+
         model.addAttribute("numberOfQuestions", quizzService.getNumberOfQuestions());
         model.addAttribute("sessionId", sessionId);
         model.addAttribute("check", true);
@@ -44,9 +51,16 @@ public class AppController {
     }
 
     @PostMapping("quizz")
-    public String nextQuestion(@RequestParam String sessionId, Model model) {
+    public String nextQuestion(@RequestParam String sessionId, @RequestParam int questionNumber, Model model) {
         if (quizzService.moreQuestions(sessionId)) {
-            model.addAttribute("question", quizzService.nextQuestion(sessionId));
+            if (quizzService.isQuestionAnswered(questionNumber, sessionId)
+                    && !quizzService.isCurrentQuestionAnswered(sessionId)) {
+                int currentQuestion = quizzService.getCurrentQuestion(sessionId);
+                model.addAttribute("question", quizzService.getQuestion(currentQuestion));
+            } else {
+                model.addAttribute("question", quizzService.nextQuestion(sessionId));
+            }
+
             model.addAttribute("numberOfQuestions", quizzService.getNumberOfQuestions());
             model.addAttribute("sessionId", sessionId);
             return "home";

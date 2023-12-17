@@ -12,20 +12,20 @@
 <body>
     <div class="d-flex flex-column align-items-center full-height">
         <div class="row">
-            <h1 class="display-5 mb-5 text-center text-shadow">Simulacro Integrador Final</h1>
+            <h1 class="display-5 mb-5 text-center text-shadow">Examen Preparatorio Integrador Final</h1>
 
             <div th:if="${question == null}">
-                <h2 class="text-center">Curso Backend con Java - Globant</h2>
+                <h2 class="text-center">Curso Backend con Java - Egg / Globant</h2>
                 <form th:action="@{/quizz}" method="get">
                     <input type="submit" value="Comenzar">
                 </form>
             </div>
         </div>
-        
+
         <div class="row align-items-center custom-height">
-            <div class="shadow rounded-4 p-4 qa-container"
-                th:if="${question != null and check == null}">
-                <h2 class="text-primary fs-4 mb-4" th:text="${'Pregunta # ' + question.number + '/' + numberOfQuestions}"></h2>
+            <div class="shadow rounded-4 p-4 qa-container" th:if="${question != null and check == null}">
+                <h2 class="text-primary fs-4 mb-4"
+                    th:text="${'Pregunta # ' + question.number + '/' + numberOfQuestions}"></h2>
                 <h3 class="fs-3 my-4" th:text="${question.text}"></h3>
 
                 <form th:action="@{/check}" method="post">
@@ -36,6 +36,7 @@
                         <label class="fs-5 full-width" th:attr="for = ${'o' + option.optionNumber}"
                             th:text="${option.optionNumber + '. ' + option.answer}"></label>
                     </div>
+                    <input type="hidden" name="questionNumber" th:value="${question.number}">
                     <input type="hidden" name="sessionId" th:value="${sessionId}">
                     <div class="d-flex align-items-end flex-column px-3">
                         <input class="btn btn-lg btn-outline-primary py-1 mt-3" type="submit" value="Responder">
@@ -43,9 +44,9 @@
                 </form>
             </div>
 
-            <div class="shadow rounded-4 p-4 qa-container"
-                th:if="${question != null and check != null}">
-                <h2 class="text-primary fs-4 mb-4" th:text="${'Pregunta # ' + question.number + '/' + numberOfQuestions}"></h2>
+            <div class="shadow rounded-4 p-4 qa-container" th:if="${question != null and check != null}">
+                <h2 class="text-primary fs-4 mb-4"
+                    th:text="${'Pregunta # ' + question.number + '/' + numberOfQuestions}"></h2>
                 <h3 class="fs-3 my-4" th:text="${question.text}"></h3>
 
                 <div>
@@ -56,6 +57,7 @@
                 </div>
 
                 <form th:action="@{/quizz}" method="post">
+                    <input type="hidden" name="questionNumber" th:value="${question.number}">
                     <input type="hidden" name="sessionId" th:value="${sessionId}">
                     <div class="d-flex align-items-end flex-column px-3">
                         <input class="btn btn-lg btn-primary py-1 mt-3" type="submit" value="Siguiente">

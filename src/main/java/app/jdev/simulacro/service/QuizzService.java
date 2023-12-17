@@ -92,6 +92,21 @@ public class QuizzService {
         return result;
     }
 
+    public boolean isQuestionAnswered(int questionNumber, String sessionId) {
+        if (!quizzes.containsKey(sessionId)) { return false; }
+        return quizzes.get(sessionId).getCurrentQuestion() > questionNumber;
+    }
+
+    public int getCurrentQuestion(String sessionId) {
+        if (!quizzes.containsKey(sessionId)) { return 1; }
+        return quizzes.get(sessionId).getCurrentQuestion();
+    }
+
+    public boolean isCurrentQuestionAnswered(String sessionId) {
+        if (!quizzes.containsKey(sessionId)) { return false; }
+        return quizzes.get(sessionId).isCurrentAnswered();
+    }
+
     public int getNumberOfQuestions() {
         return numberOfQuestions;
     }
