@@ -23,7 +23,7 @@ body {
 }
 
 .custom-height-quote {
-  height: 60%;
+  height: 65%;
 }
 
 .custom-hover {
@@ -41,4 +41,12 @@ body {
 .custom-width {
   display: inline-block;
   width: min(55rem, 93vw);
+}
+
+.start-button {
+  width: 10rem;
+}
+
+.number-input {
+  width: 4rem;
 }

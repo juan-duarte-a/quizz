@@ -8,8 +8,10 @@ import java.util.concurrent.TimeUnit;
 
 import org.springframework.stereotype.Service;
 
-import app.jdev.quizz.entity.Question;
-import app.jdev.quizz.repository.QuestionRepository;
+import app.jdev.quizz.model.QuizzInstance;
+import app.jdev.quizz.model.QuizzResult;
+import app.jdev.quizz.model.entity.Question;
+import app.jdev.quizz.model.repository.QuestionRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 
@@ -37,11 +39,14 @@ public class QuizzService {
                 EXPIRATION_HOURS * 60, 45, TimeUnit.MINUTES);
     }
 
-    public Question startQuizz(String sessionId) {
+    public Question startQuizz(int questionNumber, String sessionId) {
         var quizz = new QuizzInstance(this);
+        quizz.setStartQuestion(questionNumber - 1);
+        quizz.setCurrentQuestion(questionNumber - 1);
         quizzes.put(sessionId, quizz);
         maxConcurrentQuizzes = Math.max(quizzes.size(), maxConcurrentQuizzes);
-        LogService.log("Quizz started -- Max concurrent quizzes: " + maxConcurrentQuizzes);
+        LogService.log("Quizz started (" + sessionId + ") -- Start question: " 
+                + questionNumber + " -- Max concurrent quizzes: " + maxConcurrentQuizzes);
         return quizz.getNext();
     }
 
@@ -83,13 +88,16 @@ public class QuizzService {
                 .getNumber() < numberOfQuestions;
     }
 
-    public String getResult(String sessionId) {
-        if (!quizzes.containsKey(sessionId)) { return "No disponible"; }
-        String result = quizzes.get(sessionId).getPoints() + "/" + numberOfQuestions;
+    public QuizzResult getResult(String sessionId) {
+        if (!quizzes.containsKey(sessionId)) { return null; }
+        var quizz = quizzes.get(sessionId);
+        var quizzResult = new QuizzResult(
+                numberOfQuestions - quizz.getStartQuestion(), 
+                quizz.getPoints());
+        
         quizzes.remove(sessionId);
-
-        LogService.log("Quizz finished --- Result: " + result);
-        return result;
+        LogService.log("Quizz finished (" + sessionId + ") -- Result: " + quizzResult);
+        return quizzResult;
     }
 
     public boolean isQuestionAnswered(int questionNumber, String sessionId) {

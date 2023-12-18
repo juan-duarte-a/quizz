@@ -17,14 +17,22 @@
         </div>
 
         <div class="row align-items-center custom-height">
-            <div class="d-flex flex-column align-items-center custom-height-quote" th:if="${question == null and quote != null}">
+            <div class="d-flex flex-column align-items-center custom-height-quote"
+                th:if="${question == null and quote != null}">
                 <div class="text-center">
                     <div class="fs-3 my-4 py-3">
                         <i><span class="custom-width" th:text="${'“' + quote.text + '”'}"></span></i>
                         <p class="fs-4 m-2" th:text="${quote.author}"></p>
                     </div>
                     <form th:action="@{/quizz}" method="get">
-                        <input class="btn btn-lg btn-outline-primary" type="submit" value="Comenzar">
+                        <div class="d-flex flex-column align-items-center">
+                            <div>
+                                <label class="fs-5 mx-1 my-4" for="questionNumber">Comenzar en pregunta número:</label>
+                                <input class="number-input" type="number" value="1" name="questionNumber"
+                                    min="1" th:attr="max = ${numberOfQuestions}">
+                            </div>
+                            <input class="btn btn-lg btn-outline-primary start-button my-3" type="submit" value="Comenzar">
+                        </div>
                     </form>
                 </div>
             </div>

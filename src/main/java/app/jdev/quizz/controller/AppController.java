@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import app.jdev.quizz.model.QuizzResult;
 import app.jdev.quizz.service.QuizzService;
 import app.jdev.quizz.service.QuoteService;
 import jakarta.servlet.http.HttpSession;
@@ -24,13 +25,14 @@ public class AppController {
     @GetMapping
     public String getHome(Model model) {
         model.addAttribute("quote", quoteService.getQuote());
+        model.addAttribute("numberOfQuestions", quizzService.getNumberOfQuestions());
         return "home";
     }
 
     @GetMapping("quizz")
-    public String startQuizz(HttpSession session, Model model) {
+    public String startQuizz(@RequestParam int questionNumber, HttpSession session, Model model) {
         String sessionId = Integer.toHexString(session.hashCode());
-        model.addAttribute("question", quizzService.startQuizz(sessionId));
+        model.addAttribute("question", quizzService.startQuizz(questionNumber, sessionId));
         model.addAttribute("numberOfQuestions", quizzService.getNumberOfQuestions());
         model.addAttribute("sessionId", sessionId);
         return "home";
@@ -68,7 +70,8 @@ public class AppController {
             model.addAttribute("sessionId", sessionId);
             return "home";
         } else {
-            model.addAttribute("result", quizzService.getResult(sessionId));
+            QuizzResult result = quizzService.getResult(sessionId);
+            model.addAttribute("result", result);
             return "result";
         }
     }

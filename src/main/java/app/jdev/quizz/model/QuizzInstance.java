@@ -1,14 +1,17 @@
-package app.jdev.quizz.service;
+package app.jdev.quizz.model;
 
 import java.time.LocalDateTime;
 
-import app.jdev.quizz.entity.Question;
+import app.jdev.quizz.model.entity.Question;
+import app.jdev.quizz.service.QuizzService;
 import jakarta.annotation.PostConstruct;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
 @RequiredArgsConstructor
 public class QuizzInstance {
 
@@ -16,6 +19,7 @@ public class QuizzInstance {
     private final QuizzService quizzService;
 
     private int points;
+    private int startQuestion;
     private int currentQuestion;
     private boolean currentAnswered;
     private LocalDateTime timeStamp;
@@ -24,6 +28,7 @@ public class QuizzInstance {
     private void postConstruct() {
         points = 0;
         currentQuestion = 0;
+        startQuestion = 0;
         currentAnswered = false;
         timeStamp = LocalDateTime.now();
     }

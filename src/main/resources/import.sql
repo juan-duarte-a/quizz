@@ -18,6 +18,16 @@ INSERT INTO question (number, text) VALUES (17, '¿Qué es polimorfismo en Java?
 INSERT INTO question (number, text) VALUES (18, '¿Cuál de las siguientes es una característica de las interfaces en Java?');
 INSERT INTO question (number, text) VALUES (19, '¿En una relación ''muchos a uno'' en Java, ¿cómo están las clases relacionadas?');
 INSERT INTO question (number, text) VALUES (20, '¿Qué principio utiliza Java para permitir a un objeto ser tratado como una instancia de la clase que lo implementa o extiende?');
+INSERT INTO question (number, text) VALUES (21, '¿Qué es el Java Collections Framework (o API)?');
+INSERT INTO question (number, text) VALUES (22, '¿Cuál de los siguientes es un tipo de colección en Java?');
+INSERT INTO question (number, text) VALUES (23, '¿Qué es una excepción en Java?');
+INSERT INTO question (number, text) VALUES (24, '¿Cuál de los siguientes métodos sirve para agregar un elemento en un HashMap en Java?');
+INSERT INTO question (number, text) VALUES (25, '¿Cómo se manejan excepciones en Java?');
+INSERT INTO question (number, text) VALUES (26, '¿Cuál es la diferencia entre ''List'' y ''Set'' en Java?');
+INSERT INTO question (number, text) VALUES (27, '¿Cuál de los siguientes no hace parte del Java Collections Framework?');
+INSERT INTO question (number, text) VALUES (28, '¿Qué es un ''NullPointerException'' en Java?');
+INSERT INTO question (number, text) VALUES (29, '¿Cuál de las siguientes no es una interfaz en Java?');
+INSERT INTO question (number, text) VALUES (30, '¿Qué hace el bloque ''finally'' dentro de una estructura ''try-catch''?');
 
 INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Un tipo de dato', 0, 1);
 INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Una plantilla para creación de clases', 0, 1);
@@ -119,11 +129,60 @@ INSERT INTO answer_option (option_number, answer, correct, question_number) VALU
 INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Polimorfismo', 1, 20);
 INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'No es posible en Java', 0, 20);
 
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Un conjunto de clases e interfaces para manejar listas', 0, 21);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Una librería para creación de grandes cantidades de objetos', 0, 21);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Abstracciones e implementaciones para manejar diferentes tipos de colecciones', 1, 21);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Una herramienta para manejar la entrada y salida de datos', 0, 21);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'String', 0, 22);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Array', 0, 22);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Queue', 1, 22);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Object', 0, 22);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Un tipo de colección', 0, 23);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Un error en la sintaxis del código', 0, 23);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Un evento que interrumpe el flujo normal del programa', 1, 23);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Un error que obligatoriamente debe manejarse en el código del programa', 0, 23);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'add()', 0, 24);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'insert()', 0, 24);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'append()', 0, 24);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'put()', 1, 24);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Usando throws en la cabecera del método', 0, 25);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Usando un bloque try-catch', 0, 25);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, '1 y 2 son correctas', 1, 25);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Ninguna de las anteriores', 0, 25);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, '''List'' es ordenada y ''Set'' es no ordenada', 0, 26);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'No hay diferencia', 0, 26);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, '''List'' permite valores nulos y ''Set'' no los permite', 0, 26);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, '''List'' permite valores duplicados y ''Set'' no los permite', 1, 26);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Map', 0, 27);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Queue', 0, 27);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Array', 1, 27);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'LinkedList', 0, 27);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Un error indicando que un método recibió un argumento inapropiado', 0, 28);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'La asignación equivocada del valor ''null'' a un objeto', 0, 28);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Una excepción lanzada cuando la aplicación intenta usar un objeto que tiene valor ''null''', 1, 28);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Un error que ocurre cuando durante la ejecución de un programa se trata de asignar el valor ''null'' a un dato primitivo', 0, 28);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'List', 0, 29);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'HashMap', 1, 29);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Queue', 0, 29);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Set', 0, 29);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Se ejecuta si una excepción es atrapada en el bloque ''try-catch''', 0, 30);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Es usada para lanzar una nueva excepción', 0, 30);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Se ejecuta únicamente si al finalizar el bloque ''try'' no es atrapada ninguna excepción', 0, 30);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Es ejecutado al terminar el bloque ''try'' sin importar si se atrapó una excepción o no', 1, 30);
 
 
 INSERT INTO quote (id, author, text) VALUES (1, 'Chris Pine', 'La programación no se trata de lo que sabes; se trata de lo que puedes averiguar.');
 INSERT INTO quote (id, author, text) VALUES (2, 'John Romero', 'La programación es una profesión extremadamente creativa. Es creatividad basada en la lógica.');
-INSERT INTO quote (id, author, text) VALUES (3, 'Oscar Wilde', 'La experiencia es el nombre que todos dan a sus errores.');
+INSERT INTO quote (id, author, text) VALUES (3, 'Oscar Wilde', 'Experiencia es el nombre que todos dan a sus errores.');
 INSERT INTO quote (id, author, text) VALUES (4, 'Brian Kernighan', 'La programación se aprende escribiendo programas.');
 INSERT INTO quote (id, author, text) VALUES (5, 'John Johnson', 'Primero, resuelve el problema. Luego, escribe el código.');
 INSERT INTO quote (id, author, text) VALUES (6, 'Martin Fowler', 'Los buenos programadores escriben código que los humanos puedan entender.');
