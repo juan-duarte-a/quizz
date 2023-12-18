@@ -70,7 +70,7 @@ INSERT INTO answer_option (option_number, answer, correct, question_number) VALU
 INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'super', 0, 10);
 
 INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Una clase puede tener múltiples instancias de otra clase', 0, 11);
-INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Dos clases son complemtamente independientes una de la otra', 0, 11);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Dos clases son completamente independientes una de la otra', 0, 11);
 INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Una instancia de una clase está asociada con una instancia de otra clase', 1, 11);
 INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Una clase hereda de exactamente una sola clase', 0, 11);
 
@@ -118,3 +118,27 @@ INSERT INTO answer_option (option_number, answer, correct, question_number) VALU
 INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Herencia', 0, 20);
 INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Polimorfismo', 1, 20);
 INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'No es posible en Java', 0, 20);
+
+
+
+INSERT INTO quote (id, author, text) VALUES (1, 'Chris Pine', 'La programación no se trata de lo que sabes; se trata de lo que puedes averiguar.');
+INSERT INTO quote (id, author, text) VALUES (2, 'John Romero', 'La programación es una profesión extremadamente creativa. Es creatividad basada en la lógica.');
+INSERT INTO quote (id, author, text) VALUES (3, 'Oscar Wilde', 'La experiencia es el nombre que todos dan a sus errores.');
+INSERT INTO quote (id, author, text) VALUES (4, 'Brian Kernighan', 'La programación se aprende escribiendo programas.');
+INSERT INTO quote (id, author, text) VALUES (5, 'John Johnson', 'Primero, resuelve el problema. Luego, escribe el código.');
+INSERT INTO quote (id, author, text) VALUES (6, 'Martin Fowler', 'Los buenos programadores escriben código que los humanos puedan entender.');
+INSERT INTO quote (id, author, text) VALUES (7, 'Linus Torlvads', 'La mayoría de los buenos programadores programan no porque esperan ser pagados o recibir adulación del público, sino porque es divertido programar.');
+INSERT INTO quote (id, author, text) VALUES (8, 'Desconocido', 'En software, la simplicidad y la claridad son mucho más valiosas que ser ingenioso.');
+INSERT INTO quote (id, author, text) VALUES (9, 'John Johnson', 'Para tener éxito, hay que ser creativo y persistente.');
+INSERT INTO quote (id, author, text) VALUES (10, 'Desconocido', 'El primer paso de cualquier proyecto es convencer a tu cerebro de que no es imposible.');
+INSERT INTO quote (id, author, text) VALUES (11, 'Desconocido', 'Las herramientas no hacen buenos programas, los buenos programadores hacen buenos programas.');
+INSERT INTO quote (id, author, text) VALUES (12, 'Anders Hejlsberg', 'Solo porque la gente te cuenta que no es posible, no necesariamente significa que es imposible. Solo significa que ellos no pueden hacerlo.');
+INSERT INTO quote (id, author, text) VALUES (13, 'Edsger Dijkstra', 'La simplicidad es un requisito previo para la fiabilidad.');
+INSERT INTO quote (id, author, text) VALUES (14, 'Bill Gates', 'Medir la programación por líneas de código es como medir el progreso de la construcción de un avión por su peso.');
+INSERT INTO quote (id, author, text) VALUES (15, 'Grace Hopper', 'Lo más peligroso es decir ''siempre hemos hecho las cosas de esta manera''.');
+INSERT INTO quote (id, author, text) VALUES (16, 'Desconocido', 'Si piensas que eres un buen programador... prueba a enseñar a alguien más tu código.');
+INSERT INTO quote (id, author, text) VALUES (17, 'Desconocido', 'El verdadero arte de la programación no es escribir muchas líneas de código, sino cómo resolver problemas complejos de la manera más simple.');
+INSERT INTO quote (id, author, text) VALUES (18, 'Andy Hunt', 'Nadie en la breve historia de la informática ha escrito nunca un software perfecto. Es poco probable que seas el primero.');
+INSERT INTO quote (id, author, text) VALUES (19, 'Bjarne Stroustrup', 'El aspecto más importante del desarrollo de software es tener claro lo que estás tratando de construir.');
+INSERT INTO quote (id, author, text) VALUES (20, 'Desconocido', 'Para entender la recursión, primero debes entender la recursión.');
+INSERT INTO quote (id, author, text) VALUES (21, 'Desconocido', 'Los errores no son fracasos; son el proceso de aprendizaje y mejora.');

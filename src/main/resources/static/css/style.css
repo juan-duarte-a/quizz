@@ -22,6 +22,10 @@ body {
   height: 75%;
 }
 
+.custom-height-quote {
+  height: 60%;
+}
+
 .custom-hover {
   transition: background-color 0.3s ease;
 }
@@ -32,4 +36,9 @@ body {
 
 .text-shadow {
   text-shadow: 3px 3px 3px #93969b; /* Horizontal shadow, Vertical shadow, Blur radius, Color */
+}
+
+.custom-width {
+  display: inline-block;
+  width: min(55rem, 93vw);
 }

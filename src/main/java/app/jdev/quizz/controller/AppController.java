@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import app.jdev.quizz.service.QuizzService;
+import app.jdev.quizz.service.QuoteService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 
@@ -18,9 +19,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class AppController {
 
     private final QuizzService quizzService;
+    private final QuoteService quoteService;
 
     @GetMapping
-    public String getHome() {
+    public String getHome(Model model) {
+        model.addAttribute("quote", quoteService.getQuote());
         return "home";
     }
 

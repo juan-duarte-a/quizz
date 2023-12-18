@@ -11,18 +11,24 @@
 
 <body>
     <div class="d-flex flex-column align-items-center full-height">
-        <div class="row">
-            <h1 class="display-5 mb-5 text-center text-shadow">Examen Preparatorio para Integrador Final</h1>
-
-            <div th:if="${question == null}">
-                <h2 class="text-center">Curso Backend con Java - Egg / Globant</h2>
-                <form th:action="@{/quizz}" method="get">
-                    <input type="submit" value="Comenzar">
-                </form>
-            </div>
+        <div class="row custom-width">
+            <h1 class="display-5 mb-5 text-center text-shadow full-width">Examen Preparatorio Integrador Final</h1>
+            <h2 th:if="${question == null}" class="text-center">Curso Backend con Java</h2>
         </div>
 
         <div class="row align-items-center custom-height">
+            <div class="d-flex flex-column align-items-center custom-height-quote" th:if="${question == null and quote != null}">
+                <div class="text-center">
+                    <div class="fs-3 my-4 py-3">
+                        <i><span class="custom-width" th:text="${'“' + quote.text + '”'}"></span></i>
+                        <p class="fs-4 m-2" th:text="${quote.author}"></p>
+                    </div>
+                    <form th:action="@{/quizz}" method="get">
+                        <input class="btn btn-lg btn-outline-primary" type="submit" value="Comenzar">
+                    </form>
+                </div>
+            </div>
+
             <div class="shadow rounded-4 p-4 qa-container" th:if="${question != null and check == null}">
                 <h2 class="text-primary fs-4 mb-4"
                     th:text="${'Pregunta # ' + question.number + '/' + numberOfQuestions}"></h2>
@@ -51,7 +57,7 @@
 
                 <div>
                     <div th:each="option : ${question.answerOptions}">
-                        <p th:attr="class ='fs-5 my-3 ms-3 me-3' + ${option.correct ? ' alert alert-success' : option.optionNumber == selected ? ' alert alert-danger' : ''} + ' p-1'"
+                        <p th:attr="class ='fs-5 my-2 ms-3 me-3' + ${option.correct ? ' alert alert-success' : option.optionNumber == selected ? ' alert alert-danger' : ''} + ' p-1'"
                             th:text="${option.optionNumber + '. ' + option.answer}"></label>
                     </div>
                 </div>
