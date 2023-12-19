@@ -22,6 +22,7 @@ public class QuizzService {
     public static final int EXPIRATION_HOURS = 2;
 
     private final QuestionRepository questionRepository;
+    
     private ConcurrentHashMap<String, QuizzInstance> quizzes;
     private QuizzInstanceControl quizzInstanceControl;
     private ScheduledExecutorService executor;
@@ -95,7 +96,6 @@ public class QuizzService {
                 numberOfQuestions - quizz.getStartQuestion(), 
                 quizz.getPoints());
         
-        quizzes.remove(sessionId);
         LogService.log("Quizz finished (" + sessionId + ") -- Result: " + quizzResult);
         return quizzResult;
     }

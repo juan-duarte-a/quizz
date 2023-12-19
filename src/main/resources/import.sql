@@ -28,6 +28,36 @@ INSERT INTO question (number, text) VALUES (27, '¿Cuál de los siguientes no ha
 INSERT INTO question (number, text) VALUES (28, '¿Qué es un ''NullPointerException'' en Java?');
 INSERT INTO question (number, text) VALUES (29, '¿Cuál de las siguientes no es una interfaz en Java?');
 INSERT INTO question (number, text) VALUES (30, '¿Qué hace el bloque ''finally'' dentro de una estructura ''try-catch''?');
+INSERT INTO question (number, text) VALUES (31, '¿Qué significa JDBC?');
+INSERT INTO question (number, text) VALUES (32, '¿Cuál de los siguientes es un componente JDBC?');
+INSERT INTO question (number, text) VALUES (33, '¿Qué es SQL?');
+INSERT INTO question (number, text) VALUES (34, '¿Qué método es usado para ejecutar una consulta SQL en JDBC?');
+INSERT INTO question (number, text) VALUES (35, '¿Qué representa un ''PreparedStatement'' en JDBC?');
+INSERT INTO question (number, text) VALUES (36, '¿Qué cláusula SQL es utilizada para filtrar registros?');
+INSERT INTO question (number, text) VALUES (37, '¿Cuál es la función del Driver en JDBC?');
+INSERT INTO question (number, text) VALUES (38, '¿Cuál de los siguientes no es un componente del API de JDBC?');
+INSERT INTO question (number, text) VALUES (39, '¿Qué representa un objeto ''ResultSet'' en JDBC?');
+INSERT INTO question (number, text) VALUES (40, '¿Qué significa JPA?');
+INSERT INTO question (number, text) VALUES (41, '¿Cuál de las siguientes es la función principal de JPA?');
+INSERT INTO question (number, text) VALUES (42, '¿Qué es una entidad en JPA?');
+INSERT INTO question (number, text) VALUES (43, '¿En SQL qué es una llave primaria?');
+INSERT INTO question (number, text) VALUES (44, '¿Cómo se definen relaciones entre entidades en JPA?');
+INSERT INTO question (number, text) VALUES (45, '¿Qué sentencia SQL es usada para eliminar filas de una tabla?');
+INSERT INTO question (number, text) VALUES (46, '¿Cuál es el propósito del ''EntityManager'' en JPA?');
+INSERT INTO question (number, text) VALUES (47, '¿Cuál anotación es utilizada para definir una llave primaria en JPA?');
+INSERT INTO question (number, text) VALUES (48, '¿Cuál es la función de la cláusula ''JOIN'' en SQL?');
+INSERT INTO question (number, text) VALUES (49, '¿Cómo son las transacciones usualmente manejadas en JPA?');
+INSERT INTO question (number, text) VALUES (50, '¿Para qué es usado principalmente JUnit?');
+INSERT INTO question (number, text) VALUES (51, '¿Qué anotación es utilizada para especificar un método como un método de prueba?');
+INSERT INTO question (number, text) VALUES (52, '¿Qué hace el método ''assertEquals'' en JUnit?');
+INSERT INTO question (number, text) VALUES (53, '¿Qué es Spring Boot?');
+INSERT INTO question (number, text) VALUES (54, '¿Cuál es el propósito principal de Spring MVC?');
+INSERT INTO question (number, text) VALUES (55, '¿Qué anotación sirve para crear un controlador para una API RESTful en Spring Boot?');
+INSERT INTO question (number, text) VALUES (56, '¿Cuál es la función de la anotación ''@RequestMapping'' en Spring MVC?');
+INSERT INTO question (number, text) VALUES (57, '¿Para qué sirve la anotación''@Autowired'' en Spring Boot?');
+INSERT INTO question (number, text) VALUES (58, '¿Qué es inyección de dependencias en Spring Boot?');
+INSERT INTO question (number, text) VALUES (59, '¿Qué componente de Spring Boot es utilizado para acceder a la capa de datos?');
+INSERT INTO question (number, text) VALUES (60, '¿Qué anotación activa Spring Security en Spring Boot?');
 
 INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Un tipo de dato', 0, 1);
 INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Una plantilla para creación de clases', 0, 1);
@@ -179,6 +209,155 @@ INSERT INTO answer_option (option_number, answer, correct, question_number) VALU
 INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Se ejecuta únicamente si al finalizar el bloque ''try'' no es atrapada ninguna excepción', 0, 30);
 INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Es ejecutado al terminar el bloque ''try'' sin importar si se atrapó una excepción o no', 1, 30);
 
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Java Driver Connectivity', 0, 31);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Java Database Connectivity', 1, 31);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Java Database Concurrency', 0, 31);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Java Database Control', 0, 31);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'JDBC Driver', 0, 32);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'JDBC Statement', 0, 32);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'JDBC ResulSet', 0, 32);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Todos los anteriores', 1, 32);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Un lenguaje de programación para diseñar estructuras de datos', 0, 33);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Un script para administrar conexiones a bases de datos', 0, 33);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Un lenguaje estándar para acceso y manipulación de bases de datos', 1, 33);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Un API de Java para programación de bases de datos relacionales', 0, 33);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'executeQuery()', 1, 34);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'runQuery()', 0, 34);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'queryExecute()', 0, 34);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'executePreparedStatement()', 0, 34);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Una sentencia SQL que es ejecutada inmediatamente', 0, 35);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Una sentencia SQL que es precompilada en un objeto ''PreparedStatement''', 1, 35);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Una sentencia usada para preparar reportes en JDBC', 0, 35);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Una clase para manipulación de resultados de una consulta SQL en JDBC', 0, 35);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'ORDER BY', 0, 36);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'GROUP BY', 0, 36);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'WHERE', 1, 36);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'SET', 0, 36);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Permitir el almacenamiento de datos en Java', 0, 37);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Permitir la ejecución de código Java en la base de datos', 0, 37);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Interconectar una aplicación Java y una base de datos', 1, 37);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Convertir consultas SQL en objetos Java y viceversa', 0, 37);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'DriverManager', 0, 38);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Connection', 0, 38);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Statement', 0, 38);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Select', 1, 38);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'El resultado de compilación de una consulta SQL', 0, 39);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Una conexión a una tabla de la base de datos', 0, 39);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'El conjunto de datos obtenidos tras ejecutar una consulta SQL', 1, 39);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'El estado de una operación en una base de datos', 0, 39);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Java Processing Application', 0, 40);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Java Performance Analyzer', 0, 40);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Java Persistance API', 1, 40);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Java Protocol Adapter', 0, 40);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Administrar y persistir objetos en una base de datos', 1, 41);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Mejorar el desempeño de las aplicaciones Java', 0, 41);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Manejar las conexiones de red desde Java', 0, 41);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Generar consultas SQL para aplicaciones web', 0, 41);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Una clase en Java que representa una conexión a una base de datos', 0, 42);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Una clase de Java que se asigna a una tabla en una base de datos', 1, 42);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Una interfaz en Java para manejar la persistencia en una base de datos', 0, 42);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Una consulta en JPQL para permitir la persistencia de datos', 0, 42);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Una llave usada para la encriptación de datos en una base de datos relacional', 0, 43);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'El campo principal usado en consultas SQL', 0, 43);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'El método principal por el que se organizan los datos en una base de datos relacional', 0, 43);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Un identificador único de cada registro en una tabla de una base de datos relacional', 1, 43);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Creando una consulta en JPQL para determinar las relaciones entre las tablas', 0, 44);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'A través de la definición de un diagrama de relaciones', 0, 44);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'A través de variables de clase y anotaciones especiales en ellas', 1, 44);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Ninguna de las anteriores', 0, 44);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'REMOVE', 0, 45);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'DROP', 0, 45);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'DELETE', 1, 45);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'TRUNCATE', 0, 45);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Manejar la persistencia y obtención de entidades', 1, 46);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Manejar la ejecución de consultas SQL', 0, 46);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Establecer la conexión con la base de datos', 0, 46);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Encriptar y asegurar los datos de una base de datos', 0, 46);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, '@PrimaryKey', 0, 47);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, '@Key', 0, 47);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, '@Id', 1, 47);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, '@EntityId', 0, 47);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Concatenar strings en diferentes columnas', 0, 48);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Combinar filas de dos o más tablas', 1, 48);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Para unir múltiples sentencias SQL en una sola', 0, 48);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Agregar nuevas columnas en una tabla existente', 0, 48);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Usando la anotacion ''@Transaction''', 0, 49);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Usando la anotacion ''@Transactional''', 0, 49);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Manualmente iniciando y confirmando la transacción', 1, 49);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Las transacciones son automáticamente manejadas por JPA', 0, 49);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Administración de bases de datos en Java', 0, 50);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Pruebas de seguridad en redes en Java', 0, 50);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Realización de pruebas unitarias en Java', 1, 50);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Desarrollo de aplicaciones web en Java', 0, 50);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, '@Test', 1, 51);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, '@TestMethod', 0, 51);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, '@Testing', 0, 51);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, '@TestCase', 0, 51);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Comprueba si dos valores son iguales', 1, 52);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Compara la eficiencia de dos algoritmos', 0, 52);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Verifica que un método se ejecute sin errores', 0, 52);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Asegura que un método complete su ejecución', 0, 52);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Un framework para el desarrollo de pruebas en aplicaciones Java', 0, 53);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Un framework para desarrollar aplicaciones de escritorio en Java', 0, 53);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Un framework de Java que simplifica el desarrollo de aplicaciones', 1, 53);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Un administrador de paquetes de Java', 0, 53);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Proveer plantillas para páginas HTML', 0, 54);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Administrar conexiones a bases de datos', 0, 54);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Facilitar la creación de aplicaciones web', 1, 54);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Automatizar el proceso de construcción de aplicaciones Java', 0, 54);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, '@RestControler', 0, 55);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, '@Controller', 0, 55);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, '1 y 2 son correctas', 1, 55);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Ninguna de las anteriores', 0, 55);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Para asignar solicitudes web a métodos del controlador', 1, 56);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Para redireccioner solicitudes web a páginas HTML', 0, 56);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Para solicitar datos de la base de datos', 0, 56);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Para asociar consultas SQL a métodos de Java', 0, 56);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Compila automáticamente el código Java', 0, 57);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Ejecuta el archivo ''application.properties''', 0, 57);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Establece las variables de entorno usadas en Spring Boot', 0, 57);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Inyecta dependencias de objetos en clases', 1, 57);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Un proceso para inyectar manualmente dependencias en una clase', 0, 58);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Una herramienta para analizar y optimizar las dependencias en aplicaciones Spring Boot', 0, 58);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'La habilidad del framework de insertar objetos automáticamente dentro de una clase', 1, 58);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, 'Un método para eliminar las dependencias innecesarias', 0, 58);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, '@RestController', 0, 59);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, '@Service', 0, 59);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, '@Repository', 1, 59);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, '@Entity', 0, 59);
+
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, '@EnableSpringSecurity', 0, 60);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, '@Security', 0, 60);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, '@EnableWebSecurity', 1, 60);
+INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (4, '@SpringSecurityConfiguration', 0, 60);
 
 INSERT INTO quote (id, author, text) VALUES (1, 'Chris Pine', 'La programación no se trata de lo que sabes; se trata de lo que puedes averiguar.');
 INSERT INTO quote (id, author, text) VALUES (2, 'John Romero', 'La programación es una profesión extremadamente creativa. Es creatividad basada en la lógica.');

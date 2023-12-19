@@ -30,7 +30,8 @@ public class AppController {
     }
 
     @GetMapping("quizz")
-    public String startQuizz(@RequestParam int questionNumber, HttpSession session, Model model) {
+    public String startQuizz(@RequestParam(required = false, defaultValue = "1") int questionNumber,
+            HttpSession session, Model model) {
         String sessionId = Integer.toHexString(session.hashCode());
         model.addAttribute("question", quizzService.startQuizz(questionNumber, sessionId));
         model.addAttribute("numberOfQuestions", quizzService.getNumberOfQuestions());
@@ -74,6 +75,16 @@ public class AppController {
             model.addAttribute("result", result);
             return "result";
         }
+    }
+
+    @GetMapping("check")
+    public String avoidGetRequestAction() {
+        return "redirect:/go-back";
+    }
+
+    @GetMapping("go-back")
+    public String goBack() {
+        return "go-back";
     }
 
 }
