@@ -1,6 +1,6 @@
-package app.jdev.quizz.model;
+package app.jdev.quiz.model;
 
-public record QuizzResult(int questionsAnswered, int correct) {
+public record QuizResult(int questionsAnswered, int correct) {
     
     public int wrong() {
         return questionsAnswered - correct;

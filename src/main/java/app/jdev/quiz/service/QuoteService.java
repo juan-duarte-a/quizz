@@ -1,9 +1,9 @@
-package app.jdev.quizz.service;
+package app.jdev.quiz.service;
 
 import org.springframework.stereotype.Service;
 
-import app.jdev.quizz.model.entity.Quote;
-import app.jdev.quizz.model.repository.QuoteRepository;
+import app.jdev.quiz.model.entity.Quote;
+import app.jdev.quiz.model.repository.QuoteRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service

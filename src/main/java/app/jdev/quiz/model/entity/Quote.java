@@ -1,4 +1,4 @@
-package app.jdev.quizz.model.entity;
+package app.jdev.quiz.model.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

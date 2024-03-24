@@ -1,4 +1,4 @@
-package app.jdev.quizz.service;
+package app.jdev.quiz.service;
 
 import java.time.LocalDateTime;
 import java.util.concurrent.ConcurrentHashMap;
@@ -6,27 +6,27 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import lombok.Getter;
 import org.springframework.stereotype.Service;
 
-import app.jdev.quizz.model.QuizzInstance;
-import app.jdev.quizz.model.QuizzResult;
-import app.jdev.quizz.model.entity.Question;
-import app.jdev.quizz.model.repository.QuestionRepository;
+import app.jdev.quiz.model.QuizInstance;
+import app.jdev.quiz.model.QuizResult;
+import app.jdev.quiz.model.entity.Question;
+import app.jdev.quiz.model.repository.QuestionRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class QuizzService {
+public class QuizService {
 
     public static final int EXPIRATION_HOURS = 2;
 
     private final QuestionRepository questionRepository;
     
-    private ConcurrentHashMap<String, QuizzInstance> quizzes;
-    private QuizzInstanceControl quizzInstanceControl;
-    private ScheduledExecutorService executor;
+    private ConcurrentHashMap<String, QuizInstance> quizzes;
     private int maxConcurrentQuizzes;
+    @Getter
     private int numberOfQuestions;
 
     @PostConstruct
@@ -34,21 +34,20 @@ public class QuizzService {
         maxConcurrentQuizzes = 0;
         quizzes = new ConcurrentHashMap<>();
         numberOfQuestions = (int) questionRepository.count();
-        quizzInstanceControl = new QuizzInstanceControl(this);
-        executor = Executors.newSingleThreadScheduledExecutor();
-        executor.scheduleWithFixedDelay(quizzInstanceControl,
+        ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+        executor.scheduleWithFixedDelay(new QuizInstanceControl(this),
                 EXPIRATION_HOURS * 60, 45, TimeUnit.MINUTES);
     }
 
-    public Question startQuizz(int questionNumber, String sessionId) {
-        var quizz = new QuizzInstance(this);
-        quizz.setStartQuestion(questionNumber - 1);
-        quizz.setCurrentQuestion(questionNumber - 1);
-        quizzes.put(sessionId, quizz);
+    public Question startQuiz(int questionNumber, String sessionId) {
+        var quiz = new QuizInstance(this);
+        quiz.setStartQuestion(questionNumber - 1);
+        quiz.setCurrentQuestion(questionNumber - 1);
+        quizzes.put(sessionId, quiz);
         maxConcurrentQuizzes = Math.max(quizzes.size(), maxConcurrentQuizzes);
-        LogService.log("Quizz started (" + sessionId + ") -- Start question: " 
+        LogService.log("Quiz started (" + sessionId + ") -- Start question: "
                 + questionNumber + " -- Max concurrent quizzes: " + maxConcurrentQuizzes);
-        return quizz.getNext();
+        return quiz.getNext();
     }
 
     public Question getQuestion(Integer id) {
@@ -65,9 +64,8 @@ public class QuizzService {
         return quizzes.get(sessionId).answerQuestion(option);
     }
 
-    public boolean expired(QuizzInstance quizz) {
-        return quizz.getTimeStamp().plusHours(EXPIRATION_HOURS)
-                .compareTo(LocalDateTime.now()) < 0;
+    public boolean expired(QuizInstance quiz) {
+        return quiz.getTimeStamp().plusHours(EXPIRATION_HOURS).isBefore(LocalDateTime.now());
     }
 
     public void removeExpiredQuizzes() {
@@ -89,15 +87,15 @@ public class QuizzService {
                 .getNumber() < numberOfQuestions;
     }
 
-    public QuizzResult getResult(String sessionId) {
+    public QuizResult getResult(String sessionId) {
         if (!quizzes.containsKey(sessionId)) { return null; }
-        var quizz = quizzes.get(sessionId);
-        var quizzResult = new QuizzResult(
-                numberOfQuestions - quizz.getStartQuestion(), 
-                quizz.getPoints());
+        var quiz = quizzes.get(sessionId);
+        var quizResult = new QuizResult(
+                numberOfQuestions - quiz.getStartQuestion(),
+                quiz.getPoints());
         
-        LogService.log("Quizz finished (" + sessionId + ") -- Result: " + quizzResult);
-        return quizzResult;
+        LogService.log("Quiz finished (" + sessionId + ") -- Result: " + quizResult);
+        return quizResult;
     }
 
     public boolean isQuestionAnswered(int questionNumber, String sessionId) {
@@ -113,10 +111,6 @@ public class QuizzService {
     public boolean isCurrentQuestionAnswered(String sessionId) {
         if (!quizzes.containsKey(sessionId)) { return false; }
         return quizzes.get(sessionId).isCurrentAnswered();
-    }
-
-    public int getNumberOfQuestions() {
-        return numberOfQuestions;
     }
 
 }

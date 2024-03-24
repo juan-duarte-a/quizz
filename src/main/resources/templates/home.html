@@ -24,7 +24,7 @@
                         <i><span class="custom-width" th:text="${'“' + quote.text + '”'}"></span></i>
                         <p class="fs-4 m-2" th:text="${quote.author}"></p>
                     </div>
-                    <form th:action="@{/quizz}" method="get">
+                    <form th:action="@{/quiz}" method="get">
                         <div class="d-flex flex-column align-items-center">
                             <div>
                                 <label class="fs-5 mx-1 my-4" for="questionNumber">Comenzar en pregunta número:</label>
@@ -70,7 +70,7 @@
                     </div>
                 </div>
 
-                <form th:action="@{/quizz}" method="post">
+                <form th:action="@{/quiz}" method="post">
                     <input type="hidden" name="questionNumber" th:value="${question.number}">
                     <input type="hidden" name="sessionId" th:value="${sessionId}">
                     <div class="d-flex align-items-end flex-column px-3">

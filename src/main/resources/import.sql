@@ -59,6 +59,7 @@ INSERT INTO question (number, text) VALUES (58, '¿Qué es inyección de depende
 INSERT INTO question (number, text) VALUES (59, '¿Qué componente de Spring Boot es utilizado para acceder a la capa de datos?');
 INSERT INTO question (number, text) VALUES (60, '¿Qué anotación activa Spring Security en Spring Boot?');
 
+
 INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (1, 'Un tipo de dato', 0, 1);
 INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (2, 'Una plantilla para creación de clases', 0, 1);
 INSERT INTO answer_option (option_number, answer, correct, question_number) VALUES (3, 'Una instancia de una clase', 1, 1);
@@ -380,3 +381,4 @@ INSERT INTO quote (id, author, text) VALUES (18, 'Andy Hunt', 'Nadie en la breve
 INSERT INTO quote (id, author, text) VALUES (19, 'Bjarne Stroustrup', 'El aspecto más importante del desarrollo de software es tener claro lo que estás tratando de construir.');
 INSERT INTO quote (id, author, text) VALUES (20, 'Desconocido', 'Para entender la recursión, primero debes entender la recursión.');
 INSERT INTO quote (id, author, text) VALUES (21, 'Desconocido', 'Los errores no son fracasos; son el proceso de aprendizaje y mejora.');
+INSERT INTO quote (id, author, text) VALUES (22, 'Juan Duarte', 'Encuentra el repositorio de esta aplicación acá: https://github.com/juan-duarte-a/quizz.git');

@@ -1,22 +1,20 @@
-package app.jdev.quizz.model;
+package app.jdev.quiz.model;
 
 import java.time.LocalDateTime;
 
-import app.jdev.quizz.model.entity.Question;
-import app.jdev.quizz.service.QuizzService;
-import jakarta.annotation.PostConstruct;
+import app.jdev.quiz.model.entity.Question;
+import app.jdev.quiz.service.QuizService;
 import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
-public class QuizzInstance {
+public class QuizInstance {
 
     @Getter(AccessLevel.NONE)
-    private final QuizzService quizzService;
+    @Setter(AccessLevel.NONE)
+    private final QuizService quizService;
 
     private int points;
     private int startQuestion;
@@ -24,7 +22,11 @@ public class QuizzInstance {
     private boolean currentAnswered;
     private LocalDateTime timeStamp;
 
-    @PostConstruct
+    public QuizInstance(QuizService quizService) {
+        this.quizService = quizService;
+        postConstruct();
+    }
+
     private void postConstruct() {
         points = 0;
         currentQuestion = 0;
@@ -36,16 +38,16 @@ public class QuizzInstance {
     public Question getNext() {
         timeStamp = LocalDateTime.now();
         currentAnswered = false;
-        return quizzService.getQuestion(++currentQuestion);
+        return quizService.getQuestion(++currentQuestion);
     }
 
     public Question getPrevious() {
         timeStamp = LocalDateTime.now();
-        return quizzService.getQuestion(--currentQuestion);
+        return quizService.getQuestion(--currentQuestion);
     }
 
     public Question answerQuestion(int option) {
-        Question current = quizzService.getQuestion(currentQuestion);
+        Question current = quizService.getQuestion(currentQuestion);
         current.setSelected(current.getAnswerOptions().get(option - 1));
         if (current.getSelected().isCorrect()) { points++; }
         currentAnswered = true;
